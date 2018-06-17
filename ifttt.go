@@ -43,7 +43,7 @@ func (client *IFTTTClient) Do(event string, values Values) (string, error) {
 		return "", err
 	}
 
-	responseBody := make([]byte, 0, 0)
+	var responseBody []byte
 	_, err = resp.Body.Read(responseBody)
 
 	if err != nil {
