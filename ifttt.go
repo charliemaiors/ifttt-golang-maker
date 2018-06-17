@@ -2,6 +2,7 @@ package maker
 
 import (
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"strings"
 
@@ -43,8 +44,7 @@ func (client *IFTTTClient) Do(event string, values Values) (string, error) {
 		return "", err
 	}
 
-	var responseBody []byte
-	_, err = resp.Body.Read(responseBody)
+	responseBody, err := ioutil.ReadAll(resp.Body)
 
 	if err != nil {
 		fmt.Printf("Error reading response body %v", err)
