@@ -6,9 +6,8 @@ branches:
   only:
   - master
 go:
-- 1.10
+- 1.11
 
 script:
-- go get -v ./...
 - go test -v ./...
 - go build -v ./...
